@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample entity</title>
+    <script src="lib/js/jquery.js"></script>
+    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <script src="lib/js/bootstrap.js"></script>
+    <script src="controller.js"></script>
+
+</head>
+<body>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+    </div>
+    <div class="panel-body">
+
+
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col-xs-10">
+                        <input type="text" id="name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="col-xs-2">
+                    <label for="family">Family</label>
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" id="family">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-success btn-lg glyphicon glyphicon-save" onclick="save()"></button>
+            <button class="btn btn-success btn-lg glyphicon glyphicon-search" onclick="search()"></button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
