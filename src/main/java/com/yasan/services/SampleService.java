@@ -6,8 +6,6 @@ import com.yasan.repository.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * Created by pooya on 1/13/17.
  */
