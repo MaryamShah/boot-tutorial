@@ -2,6 +2,7 @@ package com.yasan.rests;
 
 import com.yasan.dto.TestDto;
 import com.yasan.entity.TestEntity;
+import com.yasan.exceptions.NotFoundException;
 import com.yasan.services.TestService;
 import com.yasan.transformer.BasicTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import static java.util.Objects.requireNonNull;
 
 /**
  * Created by Maryam.
@@ -34,8 +37,11 @@ public class TestRestService {
     @RequestMapping(method = RequestMethod.PUT)
     public void update(Long id, TestDto dto) {
         TestEntity result = testService.searchById(id);
-        result.setCourse(dto.getCourse());
-        result.setGrade(dto.getGrade());
+        if(result == null)
+            throw new NotFoundException("Could not found testDto by " + id + " id ");
+
+        result.setCourse(requireNonNull(dto.getCourse()));
+        result.setGrade(requireNonNull(dto.getGrade()));
         testService.update(result);
     }
 

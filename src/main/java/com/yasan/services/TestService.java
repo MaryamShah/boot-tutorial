@@ -5,8 +5,6 @@ import com.yasan.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static com.google.common.base.Objects.firstNonNull;
-
 /**
  * Created by Maryam.
  */
@@ -19,7 +17,6 @@ public class TestService {
     private TestRepository repository;
 
     public TestEntity add(TestEntity entity) {
-        firstNonNull(entity.getCourse(), "default course");
         return repository.save(entity);
     }
 
@@ -29,8 +26,7 @@ public class TestService {
 
     public void update(TestEntity entity) {
         if (repository.exists(entity.getId())) {
-            //do some thing here
-            // khabam miad  zehnam chizi toosh nist dar haale hazer!:(
+            repository.save(entity);
         }
 
     }
